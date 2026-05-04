@@ -16,7 +16,7 @@ from sklearn.preprocessing import StandardScaler
 warnings.filterwarnings("ignore")
 
 
-# ── 1.  Load ──────────────────────────────────────────────────────────────────
+# 1.  Load 
 
 def load_nose(path):
     """Pull nose x/y out of the events CSV and drop any NaN rows."""
@@ -24,7 +24,7 @@ def load_nose(path):
     return df["nose_x"].values, df["nose_y"].values
 
 
-# ── 2.  Kinematics ────────────────────────────────────────────────────────────
+# 2.  Kinematics from Data
 
 def kinematics(x, y, dt):
     """
@@ -58,7 +58,7 @@ def kinematics(x, y, dt):
     return speed, omega, accel
 
 
-# ── 3.  Fit ───────────────────────────────────────────────────────────────────
+# 3.  Fit 
 
 def fit_hmm(features, n_states, n_iter=200):
     """
@@ -81,7 +81,7 @@ def fit_hmm(features, n_states, n_iter=200):
     return model, scaler
 
 
-# ── 4.  Label states by mean speed (makes them interpretable) ─────────────────
+#4.  Label states by mean speed (makes them interpretable) 
 
 def label_states(model, scaler, n_states):
     """
